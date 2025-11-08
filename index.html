@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellitas con Estilo | Urban Pet Fashion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 30px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(30, 30, 30, 0.85) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, #ff6b9d33 0%, transparent 50%),
+                linear-gradient(-45deg, #ffd93d33 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .bg-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .bg-dog {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            opacity: 0.15;
+            filter: grayscale(50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .bg-dog1 {
+            top: 10%;
+            left: 10%;
+            background-image: url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop');
+            animation-delay: 0s;
+        }
+
+        .bg-dog2 {
+            top: 60%;
+            right: 15%;
+            background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=400&fit=crop');
+            width: 180px;
+            height: 180px;
+            animation-delay: 2s;
+        }
+
+        .bg-dog3 {
+            bottom: 15%;
+            left: 15%;
+            background-image: url('https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=400&h=400&fit=crop');
+            width: 220px;
+            height: 220px;
+            animation-delay: 4s;
+        }
+
+        .bg-dog4 {
+            top: 30%;
+            right: 8%;
+            background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=400&fit=crop');
+            width: 160px;
+            height: 160px;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(0px) translateX(-10px); }
+            75% { transform: translateY(20px) translateX(10px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 3rem;
+        }
+
+        .brand-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffd93d 100%);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #fff 0%, #ff6b9d 50%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #aaa;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffd93d 100%);
+            color: #000;
+            padding: 1.3rem 3.5rem;
+            border: none;
+            border-radius: 0;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            margin: 0.5rem;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.5);
+        }
+
+        .products {
+            background: #0a0a0a;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: #ff6b9d;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffd93d 100%);
+            color: #000;
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .product-description {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ff6b9d;
+            margin-bottom: 1.5rem;
+        }
+
+        .buy-button {
+            width: 100%;
+            background: transparent;
+            border: 2px solid #ff6b9d;
+            color: #fff;
+            padding: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffd93d 100%);
+            color: #000;
+            border-color: transparent;
+        }
+
+        .gallery {
+            background: #1a1a1a;
+            padding: 5rem 2rem;
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: #ff6b9d;
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffd93d 100%);
+            padding: 6rem 2rem;
+            color: #000;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .contact-detail {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            background: #000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link:hover {
+            background: transparent;
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            margin-top: 3rem;
+            height: 400px;
+            border: 3px solid #000;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .bg-dog {
+                width: 120px;
+                height: 120px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float i {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/59100000000?text=Hola%20Huellitas%20con%20Estilo,%20quiero%20más%20información" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <section class="hero">
+        <div class="bg-images">
+            <div class="bg-dog bg-dog1"></div>
+            <div class="bg-dog bg-dog2"></div>
+            <div class="bg-dog bg-dog3"></div>
+            <div class="bg-dog bg-dog4"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="brand-tag">Pet Fashion</div>
+            <h1>Huellitas<br>con Estilo</h1>
+            <p class="tagline">Moda urbana para mascotas con actitud</p>
+            <button class="cta-button" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
+                Ver Productos
+            </button>
+            <button class="cta-button" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">
+                Contáctanos
+            </button>
+        </div>
+    </section>
+
+    <section class="products" id="productos">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://m.media-amazon.com/images/I/71XRDqMQQvL._AC_SL1500_.jpg')">
+                    <div class="product-tag">Nuevo</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Collar urbano</h3>
+                    <p class="product-description">Collar premium con diseño urbano, ajustable y resistente. Perfecto para paseos con estilo.</p>
+                    <div class="product-price">240Bs</div>
+                    <button class="buy-button" onclick="window.open('https://wa.me/59100000000?text=Quiero%20comprar%20Collar%20Urban%20Style', '_blank')">
+                        Comprar Ahora
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://acdn-us.mitiendanube.com/stores/598/629/products/164-ede42debaf406da06517213295069388-480-0.jpg')">
+                    <div class="product-tag">Popular</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Bandanas</h3>
+                    <p class="product-description">Bandana reversible con estampados exclusivos. Dale a tu mascota un look único y moderno.</p>
+                    <div class="product-price">140Bs</div>
+                    <button class="buy-button" onclick="window.open('https://wa.me/59100000000?text=Quiero%20comprar%20Bandana%20Fashion', '_blank')">
+                        Comprar Ahora
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://m.media-amazon.com/images/I/61iSnx57FhL.jpg')">
+                    <div class="product-tag">Hot</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Correa Premium</h3>
+                    <p class="product-description">Correa resistente con agarre acolchado. Seguridad y comodidad en cada paseo.</p>
+                    <div class="product-price">314Bs</div>
+                    <button class="buy-button" onclick="window.open('https://wa.me/59100000000?text=Quiero%20comprar%20Correa%20Premium', '_blank')">
+                        Comprar Ahora
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://http2.mlstatic.com/D_NQ_NP_666164-MLA93204259015_092025-O.webp')">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Arnés Urbano</h3>
+                    <p class="product-description">Arnés ajustable de alta resistencia. Diseño ergonómico para máxima comodidad.</p>
+                    <div class="product-price">380Bs</div>
+                    <button class="buy-button" onclick="window.open('https://wa.me/59100000000?text=Quiero%20comprar%20Arnés%20Urbano', '_blank')">
+                        Comprar Ahora
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://gcdn.emol.cl/mascotas/files/2017/12/022.jpg')">
+                    <div class="product-tag">Nuevo</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Ropa Estilo Callejero</h3>
+                    <p class="product-description">Sudadera urbana para perros. Tejido suave y cálido con diseños exclusivos.</p>
+                    <div class="product-price">450Bs</div>
+                    <button class="buy-button" onclick="window.open('https://wa.me/59100000000?text=Quiero%20comprar%20Ropa%20Street%20Style', '_blank')">
+                        Comprar Ahora
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://m.media-amazon.com/images/I/81X7PTO861L.jpg')">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Set Completo</h3>
+                    <p class="product-description">Kit completo: collar, correa y bandana. Todo lo que necesitas en un solo pack.</p>
+                    <div class="product-price">590Bs</div>
+                    <button class="buy-button" onclick="window.open('https://wa.me/59100000000?text=Quiero%20comprar%20Set%20Completo', '_blank')">
+                        Comprar Ahora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2 class="section-title">Nuestro Estilo</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&h=800&fit=crop" alt="Perro con estilo">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Urban Street Style</div>
+                    <p>Accesorios premium para el día a día</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&h=800&fit=crop" alt="Perro fashion">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Casual Elegance</div>
+                    <p>Comodidad sin sacrificar estilo</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=800&h=800&fit=crop" alt="Perro con collar">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Premium Accessories</div>
+                    <p>Detalles que marcan la diferencia</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=800&fit=crop" alt="Perro elegante">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Bold Statement</div>
+                    <p>Para mascotas con personalidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <h2>Contáctanos</h2>
+            
+            <div class="social-links">
+                <a href="https://wa.me/59100000000" target="_blank" class="social-link">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+            </div>
+
+            <div style="margin: 3rem 0;">
+                <div style="display: inline-block; background: rgba(0,0,0,0.2); padding: 1rem 2rem; border: 2px solid rgba(0,0,0,0.3);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div style="font-size: 1.3rem; font-weight: 700;">Cochabamba, Bolivia</div>
+                    <p style="margin-top: 0.5rem; opacity: 0.8;">Envíos a todo el país</p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61574.12345678901!2d-66.1568!3d-17.3935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e37483110496c5%3A0x2c2ac5a207c7c45a!2sCochabamba%2C%20Bolivia!5e0!3m2!1ses!2sbo!4v1234567890123!5m2!1ses!2sbo" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <p style="margin-top: 3rem; font-weight: 600; font-size: 0.9rem;">
+                © 2025 Huellitas con Estilo - Todos los derechos reservados
+            </p>
+        </div>
+    </section>
+</body>
+</html>
